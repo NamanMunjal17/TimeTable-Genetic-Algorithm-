@@ -148,8 +148,13 @@ for i in x:
 print(x)'''
 
 def final_schedule():
-    classes={"pcmc":{"phy":10,"chem":10,"math":15,"comp":10,"eng":5},"pcmb":{"phy":10,"chem":10,"math":15,"bio":10,"eng":5},"pcbpe":{"phy":10,"chem":10,"bio":15,"pe":10,"eng":5},"pcbpsy":{"phy":10,"chem":10,"bio":15,"psy":10,"eng":5}}
-    teachers={"phy":["A","B","AA","BB"],"chem":["C","D","CC","DD"],"math":["E","F","EE","FF"],"comp":["G","GG"],"bio":["H","I","HH"],"pe":["J","JJ"],"psy":["K","KK"],"eng":["L","M","N","O"]}
+    classes={"I":{"Science":10,"EVS":10,"Math":10,"IInd Lang":10,"Eng":10},"II":{"Science":10,"EVS":10,"Math":10,"IInd Lang":10,"Eng":10},"III":{"Science":10,"EVS":10,"Math":10,"IInd Lang":10,"Eng":10},"IV":{"Science":10,"EVS":10,"Math":10,"IInd Lang":10,"Eng":10}}
+    teachers={"Science":["Vasudha","Aishwarya","Nalini","Darshan"],"Math":["Manpreet","Indrajit","Danish","Prashant"],"EVS":["Feroze","Nazir","Mitul","Jasvinder"],"IInd Lang":["Akbar","Khurshid","Farah"],"Eng":["Irfan","Pallavi","Abdul","Zaman"]}
+    subs_teach={}
+    for key in teachers:
+        for j in teachers[key]:
+            subs_teach[j]=key
+    print(subs_teach)
     teachers_given={}
     for key in teachers:
         for j in teachers[key]:
@@ -158,8 +163,8 @@ def final_schedule():
     timetables={}
     teachers_assigned={}
     for key in classes:
-        timetables["XII"+key]=schedule(classes[key])
-        teachers_assigned["XII"+key]={}
+        timetables[key]=schedule(classes[key])
+        teachers_assigned[key]={}
         subs=classes[key]
         for sub in subs:
             aa=random.choice(teachers[sub])
@@ -167,7 +172,7 @@ def final_schedule():
                 teachers[sub].remove(aa)
                 aa=random.choice(teachers[sub])
             teachers_given[aa]+=1
-            teachers_assigned["XII"+key][sub]=aa
+            teachers_assigned[key][sub]=aa
     for key in timetables:
         f=[]
         for e in timetables[key]:
@@ -232,9 +237,10 @@ def final_schedule():
                 except:
                     perm_assignemnt[first_day[i][k]]=[k]
         final_timetable.append(first_day)
-    print(final_timetable)
-x=final_schedule()
-print(x)
-while x=="failed":
-    x=final_schedule()
-    print(x)
+    for i in range(0,len(final_timetable)):
+        for j in range(0,len(final_timetable[i])):
+            sched=final_timetable[i][j]
+            for k in range(0,len(sched)):
+                sched[k]=subs_teach[sched[k]]+"-"+sched[k]
+            final_timetable[i][j]=sched
+    return final_timetable
