@@ -251,9 +251,3 @@ def final_schedule():
             final_timetable[i][j]=sched
 
     return final_timetable,class_teacher
-
-x=final_schedule()
-print(x)
-while x=="failed":
-    x=final_schedule()
-print(x)
