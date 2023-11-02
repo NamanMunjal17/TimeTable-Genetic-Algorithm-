@@ -154,7 +154,6 @@ def final_schedule():
     for key in teachers:
         for j in teachers[key]:
             subs_teach[j]=key
-    print(subs_teach)
     teachers_given={}
     for key in teachers:
         for j in teachers[key]:
@@ -192,6 +191,13 @@ def final_schedule():
                 t[j]=teachers_assigned[key][t[j]]
         teachers_assignment[key]=tt
     print(teachers_assigned)
+    class_teacher={}
+    for key in teachers_assigned:
+        class_teacher[key]=[]
+        teachers=teachers_assigned[key]
+        for key1 in teachers:
+            class_teacher[key].append(f'{key1}-{teachers[key1]}')
+    print(class_teacher)
     final_timetable=[]
     for j in range(0,5):
         first_day=[teachers_assignment[key][j] for key in teachers_assignment]
@@ -243,4 +249,11 @@ def final_schedule():
             for k in range(0,len(sched)):
                 sched[k]=subs_teach[sched[k]]+"-"+sched[k]
             final_timetable[i][j]=sched
-    return final_timetable
+
+    return final_timetable,class_teacher
+
+x=final_schedule()
+print(x)
+while x=="failed":
+    x=final_schedule()
+print(x)
