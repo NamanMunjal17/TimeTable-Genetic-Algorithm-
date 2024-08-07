@@ -11,5 +11,5 @@ Credits for image: researchgate.net
 # Clean UI
 I also built a UI for this project including an admin page, teacher page and a student page. The admin can generate timetable using the algorithm and then can also manually edit it as per their likings. The UI is built with CustomTKinter a library based of TKinter but has a way more clean and modern UI
 # Genetic Algorithm Visual representation
-![Genetic Algo]([https://github.com/user-attachments/assets/246c7723-1967-4226-8cf8-0268a5973003](https://media.geeksforgeeks.org/wp-content/uploads/genetic-algorithm1.png))\
+![Genetic Algo](https://media.geeksforgeeks.org/wp-content/uploads/genetic-algorithm1.png)\
 Credits for the image: geekforgeeks
