@@ -1,5 +1,5 @@
 # TimeTable Generation using Genetic Algorithm
-The code first randomly generates timetables fulfilling needs like:\
+The code first randomly generates timetables fulfilling needs like:
 * Periods required for each subject in a week
 * Availability of teachers for the particular subject
 * Block periods
