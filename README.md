@@ -4,7 +4,7 @@ The code first randomly generates timetables fulfilling needs like:\
 * Availability of teachers for the particular subject
 * Block periods
 These randomly generated timetables are then put against a fitness checking algorithm. In our the case the fitness score is pretty simple. If the time of two periods clash then we deduct the score achieved by the algo and mutate it with the best performing timetable.\
-Mutation method used: Swap
+Mutation method used: Swap\
 ![Swap method](https://github.com/user-attachments/assets/b5f960a3-061c-426a-b571-b8fb084cf468)\
 Credits for image: researchgate.net
 
